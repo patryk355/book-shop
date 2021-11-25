@@ -1,0 +1,93 @@
+.book {
+    background-color: #ceb994;
+    color: #000;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+}
+
+.details {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.details img {
+    width: 60%;
+    margin: 0 auto;
+    height: 20rem;
+    order: 1;
+}
+
+.description {
+    font-size: 1.3rem;
+    width: 100%;
+    padding: 0 2rem 0 0;
+}
+
+.details button {
+    cursor: pointer;
+    margin-left: .5rem;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    margin-right: 1rem;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+    .book h2 {
+        font-size: 2.4rem;
+    }
+
+    .book h3 {
+        font-size: 1.8rem;
+    }
+
+    .details {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .description {
+        font-size: 1.7rem;
+
+    }
+}
+
+@media (min-width: 992px) {
+    .details img {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .book h2 {
+        font-size: 2.4rem;
+    }
+
+    .book h3 {
+        font-size: 1.8rem;
+    }
+
+    .details {
+        flex-direction: column-reverse;
+    }
+
+    .details img {
+        height: 20rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .details img {
+        height: 30rem;
+    }
+}

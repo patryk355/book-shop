@@ -1,0 +1,90 @@
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.closeBtn:hover {
+    background-color: rgb(163, 162, 162);
+}
+
+.header {
+    text-align: center;
+}
+
+.products-list {
+    padding: 0;
+    margin: 0;
+}
+
+.products-list li {
+    background-color: rgb(216, 212, 212);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.products-list li div {
+    display: flex;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.amount {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.amount input, .amount button {
+    height: 2rem;
+}
+
+.amount input {
+    width: 1.8rem;
+    border: none;
+    text-align: center;
+    cursor: initial;
+}
+
+.amount input:focus {
+    outline: none;
+}
+
+.price {
+    margin-right: 1rem;
+    font-size: 1.4rem;
+}
+
+.actions {
+    border: none;
+    background-color: #ffa600;
+    cursor: pointer;
+}
+
+.actions:hover {
+    background-color: #E2950E;
+}
+
+.totalAmount,
+.totalPrice {
+    text-align: center;
+}

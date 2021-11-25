@@ -1,0 +1,31 @@
+.form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+.form-input {
+    margin: 0 auto .7rem;
+    text-align: center;
+}
+
+.form-input label {
+    color: #fff;
+    margin-right: .5rem;
+    font-size: 1.2rem;
+}
+
+.form-input input {
+    padding: .4rem;
+}
+
+.form-controls {
+    margin: 0 auto;
+}
+
+.invalid {
+    color: #ff0000;
+    font-size: 1.1rem;
+}

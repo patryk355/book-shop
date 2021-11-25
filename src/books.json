@@ -1,0 +1,52 @@
+{
+    "books": [
+        {
+            "id": "b1",
+            "title": "The Witcher: The Last Wish",
+            "author": "Andrzej Sapkowski",
+            "description": "The Last Wish is the first book in Andrzej Sapkowski's The Witcher series in terms of story chronology, although the original Polish edition was published in 1993, after Sword of Destiny.",
+            "price": 8,
+            "image_url": "https://static.wikia.nocookie.net/witcher/images/7/78/Uk_the_last_wish_new.jpg/revision/latest?cb=20160617190552"
+        },
+        {
+            "id": "b2",
+            "title": "And Then There Were None",
+            "author": "Agatha Christie",
+            "description": "And Then There Were None is a mystery novel by the English writer Agatha Christie, described by her as the most difficult of her books to write. It was first published in the United Kingdom by the Collins Crime Club on 6 November 1939, as Ten Little Niggers, after the children's counting rhyme and minstrel song, which serves as a major element of the plot.",
+            "price": 6,
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/81B9LhCS2AL.jpg"
+        },
+        {
+            "id": "b3",
+            "title": "Metro 2033",
+            "author": "Dmitry Glukhovsky",
+            "description": "Metro 2033 (Russian: Метро 2033), by Russian journalist/author Dmitry Glukhovsky, tells the story of a young man named Artyom who traverses the dangers of his apocalyptic world to save it from the new threat from the north. The book describes the consequences of an atomic war: its only survivors strive for existence in the mazes of the Moscow metro system some two decades after the nuclear Holocaust.",
+            "price": 15,
+            "image_url": "https://www.swiatksiazki.pl/media/catalog/product/cache/eaf55611dc9c3a2fa4224fad2468d647/2/9/2999904258129.jpg"
+        },
+        {
+            "id": "b4",
+            "title": "Millennium: The Girl Who Played with Fire",
+            "author": "Stieg Larsson",
+            "description": "The Girl Who Played with Fire is the second novel in the best-selling Millennium series by Swedish writer Stieg Larsson. It was published posthumously in Swedish in 2006 and in English in January 2009. The book features many of the characters who appeared in The Girl with the Dragon Tattoo (2005), among them the title character, Lisbeth Salander, a brilliant computer hacker and social misfit, and Mikael Blomkvist, an investigative journalist and publisher of Millennium magazine.",
+            "price": 18,
+            "image_url": "https://m.media-amazon.com/images/I/51Zw4NfNCHL.jpg"
+        },
+        {
+            "id": "b5",
+            "title": "Outsider",
+            "author": "Stephen King",
+            "description": "An eleven-year-old boy’s violated corpse is discovered in a town park. Eyewitnesses and fingerprints point unmistakably to one of Flint City’s most popular citizens—Terry Maitland, Little League coach, English teacher, husband, and father of two girls. Detective Ralph Anderson, whose son Maitland once coached, orders a quick and very public arrest. Maitland has an alibi, but Anderson and the district attorney soon have DNA evidence to go with the fingerprints and witnesses. Their case seems ironclad.",
+            "price": 10,
+            "image_url": "http://stephenking.pl/wp-content/uploads/2017/11/The-Outsider.png"
+        },
+        {
+            "id": "b6",
+            "title": "The Godfather",
+            "author": "Mario Puzo",
+            "description": "The Godfather is a crime novel by American author Mario Puzo. Originally published in 1969 by G. P. Putnam's Sons, the novel details the story of a fictional Mafia family in New York City (and Long Island), headed by Vito Corleone, the Godfather. The novel covers the years 1945 to 1955 and includes the back story of Vito Corleone from early childhood to adulthood. The first in a series of novels, The Godfather is noteworthy for introducing Italian words like consigliere, caporegime, Cosa Nostra, and omertà to an English-speaking audience.",
+            "price": 13,
+            "image_url": "https://images-na.ssl-images-amazon.com/images/I/71Jk3baRdnL.jpg"
+        }
+    ]
+}

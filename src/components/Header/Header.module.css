@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 2px solid #ffa600;
+}
+
+.header h1 {
+    color: #fff;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.list li {
+    margin-right: 1rem;
+}
+
+.list li:hover {
+    cursor: pointer;
+    color: #ffa600;
+}
