@@ -47,7 +47,7 @@ const Book = ({ id, title, author, description, price, image_url }) => {
                     <Button value="Add to cart" onClick={addBookToCartHandler} />
                 </div>
             </li>
-        </Fragment>
+        </Fragment >
     )
 }
 
