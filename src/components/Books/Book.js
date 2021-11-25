@@ -17,10 +17,10 @@ const Book = ({ id, title, author, description, price, image_url }) => {
     }
 
     const addBookToCartHandler = () => {
-        setIsClicked(true);
         if (isLogged) {
             dispatch(cartActions.addItemToCart({ id, title, author, price, amount: 1 }));
         } else {
+            setIsClicked(true);
             setTimeout(() => {
                 setIsClicked(false)
             }, 1000);
