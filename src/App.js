@@ -1,12 +1,17 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import Books from "./components/Books/Books";
 import Cart from "./components/Cart/Cart";
 import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
 import Notification from "./components/UI/Notification/Notification";
+
 import { booksActions } from "./store/books-slice";
 import { cartActions } from "./store/cart-slice";
+import { notificationActions } from "./store/notification-slice";
+
+let firstRun = true;
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +20,10 @@ function App() {
   const isLogged = useSelector(state => state.login.isLogged);
   const showForm = useSelector(state => state.ui.showForm);
   const showCart = useSelector(state => state.ui.showCart);
+
+  const notification = useSelector(state => state.notification);
+
+
 
   // Fetch books 
   useEffect(() => {
@@ -41,7 +50,6 @@ function App() {
       }
 
       const data = await res.json();
-      console.log(data.items);
 
       dispatch(cartActions.fetchItems({
         items: data.items || [],
@@ -50,7 +58,11 @@ function App() {
       }));
     }
     fetchData();
+
+    firstRun = false;
   }, [dispatch]);
+
+
 
   useEffect(() => {
     const putBooksToCart = async () => {
@@ -64,16 +76,36 @@ function App() {
       })
 
       if (!res.ok) {
+        dispatch(notificationActions.showNotification({ type: 'error', content: 'Upss... Try again!' }));
+
+        setTimeout(() => {
+          dispatch(notificationActions.hideNotification());
+        }, 2000);
+
         throw new Error('Something went wrong!');
       }
     }
-    putBooksToCart()
+
+    putBooksToCart();
+
+    if (!firstRun) {
+      dispatch(notificationActions.showNotification({ type: 'success', content: 'Successfully added book to cart!' }));
+
+      setTimeout(() => {
+        dispatch(notificationActions.hideNotification())
+      }, 2000);
+    }
+    firstRun = false;
   }, [cart, dispatch]);
+
 
   return (
     <Fragment>
       {showCart && <Cart />}
       <Header />
+
+      {!firstRun && notification.showNotification && <Notification type={notification.type}>{notification.content}</Notification>}
+
       {!isLogged && <Notification>Please login if you want add some products to cart.</Notification>}
       {showForm && <Notification>Do not enter personal data, because it's a demo application!</Notification>}
       {showForm && <Form />}
