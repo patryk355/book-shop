@@ -1,11 +1,23 @@
-.notification {
+
+.error, .success, .info {
     max-width: 80%;
     border-radius: 3rem;
-    background-color: #ffa600;
     font-weight: 500;
     font-size: 1.1rem;
     text-align: center;
     padding: 0.4rem 1rem;
     margin: 1rem auto;
     cursor: pointer;
+}
+
+.info {
+    background-color: #ffa600;
+}
+
+.error {
+    background-color: #ff0000;
+}
+
+.success {
+    background-color: #00ff00;
 }
