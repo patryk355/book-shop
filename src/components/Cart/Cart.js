@@ -19,7 +19,7 @@ const Cart = () => {
 
             <ul className={styles['products-list']}>
                 {cart.items.map(({ amount, author, description, id, image_url, price, title }) => (
-                    <li>
+                    <li key={id}>
                         <h3 className={styles.title}>{title}</h3>
                         <div>
                             <p className={styles.price}>{amount * price}$</p>
