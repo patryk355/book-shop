@@ -9,6 +9,8 @@ import styles from './Book.module.css';
 const Book = ({ id, title, author, description, price, image_url }) => {
     const dispatch = useDispatch();
     const isLogged = useSelector(state => state.login.isLogged);
+
+
     const [showMore, setShowMore] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
 
@@ -29,6 +31,7 @@ const Book = ({ id, title, author, description, price, image_url }) => {
 
     return (
         <Fragment>
+
             {!isLogged && isClicked && <Modal>You need to login.</Modal>}
             <li className={styles.book}>
                 <h2>{title}</h2>
