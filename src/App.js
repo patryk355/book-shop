@@ -1,6 +1,5 @@
 import { Fragment, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Books from "./components/Books/Books";
 import Cart from "./components/Cart/Cart";
 import Form from "./components/Form/Form";
