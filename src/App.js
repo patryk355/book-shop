@@ -7,8 +7,7 @@ import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
 import Notification from "./components/UI/Notification/Notification";
 
-import { booksActions } from "./store/books-slice";
-import { cartActions } from "./store/cart-slice";
+import { fetchData, fetchDataFromCart, putDataToCart } from "./store/data-slice";
 import { notificationActions } from "./store/notification-slice";
 
 let firstRun = true;
@@ -26,64 +25,17 @@ function App() {
 
   // Fetch books 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('https://bookshop-80519-default-rtdb.firebaseio.com/books.json');
-
-      if (!res.ok) {
-        throw new Error('Something went wrong!');
-      }
-
-      const data = await res.json();
-      dispatch(booksActions.fetchBooks({ items: data }));
-    }
-    fetchData();
+    dispatch(fetchData());
   }, [dispatch]);
 
   // Fetch books in cart
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('https://bookshop-80519-default-rtdb.firebaseio.com/cart.json');
-
-      if (!res.ok) {
-        throw new Error('Something went wrong!');
-      }
-
-      const data = await res.json();
-
-      dispatch(cartActions.fetchItems({
-        items: data.items || [],
-        totalAmount: data.totalAmount || 0,
-        totalPrice: data.totalPrice || 0,
-      }));
-    }
-
-    fetchData();
-
+    dispatch(fetchDataFromCart());
   }, [dispatch]);
 
+  // Update cart on firebase
   useEffect(() => {
-    const putBooksToCart = async () => {
-      const res = await fetch('https://bookshop-80519-default-rtdb.firebaseio.com/cart.json', {
-        method: 'PUT',
-        body: JSON.stringify({
-          items: cart.items,
-          totalAmount: cart.totalAmount,
-          totalPrice: cart.totalPrice,
-        }),
-      })
-
-      if (!res.ok) {
-        throw new Error('Something went wrong!');
-      }
-    }
-
-    putBooksToCart().catch((error) => {
-      dispatch(notificationActions.showNotification({ type: 'error', content: 'Upss... Try again!' }));
-
-      setTimeout(() => {
-        dispatch(notificationActions.hideNotification());
-      }, 2000);
-    });
+    dispatch(putDataToCart(cart));
 
     if (firstRun) {
       firstRun = false;
