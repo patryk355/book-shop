@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';
+import { notificationActions } from '../../store/notification-slice';
 import Button from '../UI/Button/Button';
 import Modal from '../UI/Modal/Modal';
 
@@ -9,7 +10,6 @@ import styles from './Book.module.css';
 const Book = ({ id, title, author, description, price, image_url }) => {
     const dispatch = useDispatch();
     const isLogged = useSelector(state => state.login.isLogged);
-
 
     const [showMore, setShowMore] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
@@ -21,6 +21,7 @@ const Book = ({ id, title, author, description, price, image_url }) => {
     const addBookToCartHandler = () => {
         if (isLogged) {
             dispatch(cartActions.addItemToCart({ id, title, author, price, amount: 1 }));
+            dispatch(notificationActions.showNotification({ type: 'success', content: 'Successfully added book to cart!' }));
         } else {
             setIsClicked(true);
             setTimeout(() => {
