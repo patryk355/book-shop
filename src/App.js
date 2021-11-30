@@ -12,6 +12,7 @@ import { cartActions } from "./store/cart-slice";
 import { notificationActions } from "./store/notification-slice";
 
 let firstRun = true;
+let secondRun = true;
 
 function App() {
   const dispatch = useDispatch();
@@ -22,8 +23,6 @@ function App() {
   const showCart = useSelector(state => state.ui.showCart);
 
   const notification = useSelector(state => state.notification);
-
-
 
   // Fetch books 
   useEffect(() => {
@@ -57,12 +56,10 @@ function App() {
         totalPrice: data.totalPrice || 0,
       }));
     }
+
     fetchData();
 
-    firstRun = false;
   }, [dispatch]);
-
-
 
   useEffect(() => {
     const putBooksToCart = async () => {
@@ -76,35 +73,39 @@ function App() {
       })
 
       if (!res.ok) {
-        dispatch(notificationActions.showNotification({ type: 'error', content: 'Upss... Try again!' }));
-
-        setTimeout(() => {
-          dispatch(notificationActions.hideNotification());
-        }, 2000);
-
         throw new Error('Something went wrong!');
       }
     }
 
-    putBooksToCart();
-
-    if (!firstRun) {
-      dispatch(notificationActions.showNotification({ type: 'success', content: 'Successfully added book to cart!' }));
+    putBooksToCart().catch((error) => {
+      dispatch(notificationActions.showNotification({ type: 'error', content: 'Upss... Try again!' }));
 
       setTimeout(() => {
-        dispatch(notificationActions.hideNotification())
+        dispatch(notificationActions.hideNotification());
       }, 2000);
-    }
-    firstRun = false;
-  }, [cart, dispatch]);
+    });
 
+    if (firstRun) {
+      firstRun = false;
+      return;
+    }
+    if (secondRun) {
+      secondRun = false;
+      return;
+    }
+
+    setTimeout(() => {
+      dispatch(notificationActions.hideNotification())
+    }, 2000);
+
+  }, [cart, dispatch]);
 
   return (
     <Fragment>
       {showCart && <Cart />}
       <Header />
 
-      {!firstRun && notification.showNotification && <Notification type={notification.type}>{notification.content}</Notification>}
+      {notification.showNotification && <Notification type={notification.type}>{notification.content}</Notification>}
 
       {!isLogged && <Notification>Please login if you want add some products to cart.</Notification>}
       {showForm && <Notification>Do not enter personal data, because it's a demo application!</Notification>}
